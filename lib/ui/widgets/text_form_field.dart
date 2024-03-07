@@ -1,3 +1,4 @@
+import 'package:firebase_demo/core/constants/color_consant.dart';
 import 'package:flutter/material.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: controller,
@@ -22,7 +23,13 @@ class TextFormFieldWidget extends StatelessWidget {
         obscureText: obscureText,
         validator: validator,
         decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: ColorConstants.black, width: 2)),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: ColorConstants.black,
+              )),
           labelText: labelText,
         ),
       ),
