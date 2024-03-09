@@ -13,12 +13,12 @@ class ElevatedButtonWidget extends StatelessWidget {
       width: MediaQuery.of(context).size.width*.9,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(10),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
           backgroundColor: ColorConstants.black,
         ),
         onPressed: onPressed,
-        child: Text(text,style: const TextStyle(color: ColorConstants.white),),
+        child: Text(text,style: const TextStyle(color: ColorConstants.white,fontSize: 18),),
       ),
     );
   }

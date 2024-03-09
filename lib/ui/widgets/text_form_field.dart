@@ -7,8 +7,12 @@ class TextFormFieldWidget extends StatelessWidget {
       required this.labelText,
       required this.controller,
       required this.obscureText,
-      required this.validator});
+      required this.validator,
+      this.initialValue,
+      this.hint});
   final String labelText;
+  final String? initialValue;
+  final String? hint;
   final TextEditingController controller;
   final bool obscureText;
   final String? Function(dynamic)? validator;
@@ -19,18 +23,28 @@ class TextFormFieldWidget extends StatelessWidget {
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: controller,
+        initialValue: initialValue,
         obscuringCharacter: "*",
         obscureText: obscureText,
         validator: validator,
         decoration: InputDecoration(
-          focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: ColorConstants.black, width: 2)),
+          alignLabelWithHint: false,
+          hintText: hint,
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: ColorConstants.black,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
                 color: ColorConstants.black,
               )),
           labelText: labelText,
+          labelStyle:
+              const TextStyle(color: ColorConstants.black, fontSize: 18),
         ),
       ),
     );
